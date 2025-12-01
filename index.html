@@ -1,0 +1,75 @@
+<!DOCTYPE html> <!--informa que é html 5-->
+<html lang="pt-br"><!--linguagem que esta(português)-->
+<head><!--inicio da "cabeça"do codigo-->
+<meta charset="UTF-8"><!--faz com que os acentos e caracteres especiais sejam colocados de forma correta-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--faz funcionar em celulares de forma ajustada-->
+<title>EcoQuiz</title> <!--nome que aparece no navegador-->
+<link rel="stylesheet" href="style.css"> <!--conecta o html ao CSS-->
+</head>
+<body><!--corpo da aplicação, é o que aparece pro usuario-->
+ 
+<!-- TELA INICIAL -->
+<div id="startScreen" class="screen">
+    <h1>EcoQuiz</h1>
+    <p class="lead">Teste seus Conhecimentos e Aprenda a Proteger a Natureza!</p>
+    <button id="startBtn" class="btn">Iniciar</button>
+</div>
+ 
+<!-- TELA DO JOGO -->
+<div id="gameScreen" class="screen hidden"> <!--tela do quiz, "hidden" deixa visível ate que comece o jogo-->
+    <div class="top-bar">
+        <div id="lives">❤️❤️❤️</div><!--mostra as vidas do jogador-->
+        <div>Pontos: <span id="scoreValue">0</span></div><!--mostra os pontos feitos-->
+        <div id="timerCircle"><!--cronometro em circulo-->
+            <svg width="60" height="60"><!--desenho vetorial do circulo-->
+                <circle cx="30" cy="30" r="26" class="bg"></circle>
+                <circle cx="30" cy="30" r="26" class="progress"></circle>
+            </svg>
+            <span id="timeLeft">10</span>
+        </div>
+    </div>
+ 
+    <!--perguntas-->
+    <div class="question-box"> <!--caixa de perguntas-->
+        <div id="questionText">Pergunta aqui...</div><!--onde será colocada a pergunta-->
+        <div class="answers"><!--container com 4 alternativas-->
+            <button class="answer"><span class="letter">A:</span></button>
+            <button class="answer"><span class="letter">B:</span></button>
+            <button class="answer"><span class="letter">C:</span></button>
+            <button class="answer"><span class="letter">D:</span></button>
+            <!--opcões de respostas, contorle do JS-->
+        </div>
+    </div>
+ 
+    <div class="controls">
+        <button id="nextBtn" class="btn secondary" disabled>Próxima</button>
+        <!--só é ativado depois de escolher a resposta-->
+        <button id="endBtn" class="btn secondary">Encerrar</button><!--permite encerrar o jogo antes de responder todas as perguntas-->
+    </div>
+</div>
+ 
+<!-- GAME OVER -->
+<div id="gameOverScreen" class="overlay hidden"><!--permite exibir mensagem de fim de jogo-->
+    <div class="overlay-box"><!--caixa onde será exibida mensagem de fim-->
+        <h1 class="overlay-title">GAME OVER</h1><!--mensagre GAME OVER-->
+        <button id="restartBtn" class="btn overlay-btn">Recomeçar</button><!--permite reiniciar o jogo-->
+    </div>
+</div>
+ 
+<!-- VITÓRIA -->
+<div id="winScreen" class="overlay hidden"><!--permite exibir que o o jogador venceu-->
+    <div class="overlay-box"><!--caixa onde aparece a mensagem-->
+        <h1 class="overlay-title" style="color:#39ec08;">PARABÉNS!</h1><!--aparece no monitor-->
+        <p class="overlay-sub">Você venceu! Cada ação sua faz a diferença pelo planeta!</p><!--mensagem positiva no final-->
+        <p>Pontos finais: <span id="finalScore">0</span></p><!--pontuação final-->
+        <button id="restartWinBtn" class="btn overlay-btn">Recomeçar</button><!--reinicia após o fim do jogo-->
+    </div>
+</div>
+ 
+<!-- Áudio -->
+<audio id="gameMusic" src="Arquivos/thinking-time-148496 1.mp3" preload="auto" loop></audio>
+<!--musica de fundo-->
+ 
+<script src="script.js"></script><!--conecta o Java Script-->
+</body>
+</html>
